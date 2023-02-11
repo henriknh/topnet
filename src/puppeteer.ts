@@ -33,7 +33,6 @@ export const getNewResults = async (): Promise<object> => {
   //Iterate over the hrefs
   for (let href of hemnetObjects) {
     const result = await handleObject(browser, href);
-    console.log("result", result);
 
     if (typeof result === "string") {
       // Matches a keyword group
@@ -75,7 +74,6 @@ const handleObject = async (
   browser: Browser,
   href: string
 ): Promise<boolean | string> => {
-  console.log(href);
   const newPage = await browser.newPage();
   await newPage.goto(href);
 
@@ -98,9 +96,6 @@ const handleObject = async (
         keywords.split("|").some((keyword) => description.includes(keyword))
       )
     : true;
-  console.log("hasAllRequired", hasAllRequired);
-  console.log("hasBalcony", hasBalcony);
-  console.log("isTopFloor", isTopFloor);
 
   if (hasAllRequired && hasBalcony && isTopFloor) {
     if (keywordsOptional.length && description) {

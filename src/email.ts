@@ -1,5 +1,3 @@
-import * as dotenv from "dotenv";
-dotenv.config();
 import nodemailer, { SendMailOptions } from "nodemailer";
 
 if (!process.env.EMAIL_HOST) {
@@ -31,20 +29,21 @@ export const sendEmail = async (mail: SendMailOptions) => {
 };
 
 export const buildEmail = async (result: any) => {
-  console.log(result);
-
   let html = "";
   Object.keys(result).forEach((section) => {
     if (Object.keys(result).length >= 2) {
       html += `<strong>${section}</strong></br></br>`;
+      console.log(section);
     }
 
-    result[section].forEach((href: string) => (html += `${href}</br>`));
+    result[section].forEach((href: string) => {
+      html += `${href}</br>`;
+      console.log(` - ${href}`);
+    });
 
     html += `</br></br>`;
+    console.log("");
   });
-
-  console.log(html);
 
   await sendEmail({
     from: `"Topnet" <${process.env.EMAIL_USER}>`,
