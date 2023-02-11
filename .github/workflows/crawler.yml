@@ -6,6 +6,8 @@ on:
       - main
     paths-ignore:
       - "**.md"
+  schedule:
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 concurrency:
