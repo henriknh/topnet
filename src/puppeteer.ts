@@ -88,7 +88,7 @@ const handleObject = async (
     )
   )?.toLowerCase();
 
-  newPage.close();
+  await newPage.close();
 
   const hasAllRequired = keywordsRequired.length
     ? description &&
