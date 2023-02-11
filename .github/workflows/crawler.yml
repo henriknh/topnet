@@ -16,7 +16,14 @@ jobs:
   crawler:
     runs-on: ubuntu-latest
 
-    environment: Action Env
+    env:
+      HEMNET_URL: ${{env.HEMNET_URL}}
+      KEYWORDS_REQUIRED: ${{env.KEYWORDS_REQUIRED}}
+      KEYWORDS_OPTIONAL: ${{env.KEYWORDS_OPTIONAL}}
+      EMAIL_HOST: ${{secrets.EMAIL_HOST}}
+      EMAIL_USER: ${{secrets.EMAIL_USER}}
+      EMAIL_PASS: ${{secrets.EMAIL_PASS}}
+      EMAIL_RECIEVERS: ${{secrets.EMAIL_RECIEVERS}}
 
     steps:
       - uses: actions/checkout@v2
