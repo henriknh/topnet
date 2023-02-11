@@ -52,6 +52,7 @@ export const getNewResults = async (): Promise<object> => {
 const getHemnetObjects = async (browser: Browser): Promise<string[]> => {
   const page = await browser.newPage();
 
+  console.log("Opening Hemnet URL:", process.env.HEMNET_URL);
   await page.goto(process.env.HEMNET_URL as string);
 
   //Accept terms
