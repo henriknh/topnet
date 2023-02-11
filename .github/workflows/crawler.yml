@@ -18,6 +18,15 @@ jobs:
 
     environment: "Action Env"
 
+    env:
+      HEMNET_URL: ${{vars.HEMNET_URL}}
+      KEYWORDS_REQUIRED: ${{vars.KEYWORDS_REQUIRED}}
+      KEYWORDS_OPTIONAL: ${{vars.KEYWORDS_OPTIONAL}}
+      EMAIL_HOST: ${{secrets.EMAIL_HOST}}
+      EMAIL_USER: ${{secrets.EMAIL_USER}}
+      EMAIL_PASS: ${{secrets.EMAIL_PASS}}
+      EMAIL_RECIEVERS: ${{secrets.EMAIL_RECIEVERS}}
+
     steps:
       - uses: actions/checkout@v2
 
