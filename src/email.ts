@@ -1,0 +1,55 @@
+import * as dotenv from "dotenv";
+dotenv.config();
+import nodemailer, { SendMailOptions } from "nodemailer";
+
+if (!process.env.EMAIL_HOST) {
+  throw "Email host missing";
+}
+if (!process.env.EMAIL_USER) {
+  throw "Email sender missing";
+}
+if (!process.env.EMAIL_PASS) {
+  throw "Email password missing";
+}
+if (!process.env.EMAIL_RECIEVER) {
+  throw "Email reciever missing";
+}
+
+const SMTP_TRANSPORT = {
+  host: process.env.EMAIL_HOST,
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+};
+
+export const sendEmail = async (mail: SendMailOptions) => {
+  const transporter = await nodemailer.createTransport(SMTP_TRANSPORT);
+  const info = await transporter.sendMail(mail);
+};
+
+export const buildEmail = async (result: any) => {
+  console.log(result);
+
+  let html = "";
+  Object.keys(result).forEach((section) => {
+    if (Object.keys(result).length >= 2) {
+      html += `<strong>${section}</strong></br></br>`;
+    }
+
+    result[section].forEach((href: string) => (html += `${href}</br>`));
+
+    html += `</br></br>`;
+  });
+
+  console.log(html);
+
+  await sendEmail({
+    from: `"Topnet" <${process.env.EMAIL_USER}>`,
+    to: process.env.EMAIL_RECIEVER,
+    subject: "Topnet",
+    html,
+  });
+};

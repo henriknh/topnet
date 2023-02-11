@@ -1,0 +1,31 @@
+{
+  "name": "topnet",
+  "version": "1.0.0",
+  "description": "Hemnet but only with top floor apartments",
+  "main": "main.ts",
+  "scripts": {
+    "start": "npx ts-node-dev main.ts",
+    "build": "tsc main.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henriknh/topnet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/henriknh/topnet/issues"
+  },
+  "homepage": "https://github.com/henriknh/topnet#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "nodemailer": "^6.9.1",
+    "puppeteer": "^19.6.3",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.7",
+    "ts-node-dev": "^2.0.0"
+  }
+}
