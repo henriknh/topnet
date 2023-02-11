@@ -4,8 +4,8 @@
   "description": "Hemnet but only with top floor apartments",
   "main": "main.ts",
   "scripts": {
-    "start": "npx ts-node-dev main.ts",
-    "build": "tsc main.ts",
+    "dev": "npx ts-node-dev main.ts",
+    "prod": "set HEADLESS=true && ts-node main.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
