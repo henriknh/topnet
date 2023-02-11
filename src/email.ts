@@ -11,8 +11,8 @@ if (!process.env.EMAIL_USER) {
 if (!process.env.EMAIL_PASS) {
   throw "Email password missing";
 }
-if (!process.env.EMAIL_RECIEVER) {
-  throw "Email reciever missing";
+if (!process.env.EMAIL_RECIEVERS) {
+  throw "Email recievers missing";
 }
 
 const SMTP_TRANSPORT = {
@@ -48,7 +48,7 @@ export const buildEmail = async (result: any) => {
 
   await sendEmail({
     from: `"Topnet" <${process.env.EMAIL_USER}>`,
-    to: process.env.EMAIL_RECIEVER,
+    to: process.env.EMAIL_RECIEVERS?.split(";").join(","),
     subject: "Topnet",
     html,
   });
