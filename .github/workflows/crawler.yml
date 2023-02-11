@@ -7,7 +7,7 @@ on:
     paths-ignore:
       - "**.md"
   schedule:
-    - cron: "*/1 * * * *"
+    - cron: "* * * * *"
   workflow_dispatch:
 
 concurrency:
