@@ -16,6 +16,8 @@ jobs:
   crawler:
     runs-on: ubuntu-latest
 
+    environment: Action Env
+
     steps:
       - uses: actions/checkout@v2
 
