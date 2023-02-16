@@ -6,5 +6,10 @@ import { getNewResults } from "./src/puppeteer";
 
 (async () => {
   const results = await getNewResults();
-  await buildEmail(results);
+
+  if (Object.keys(results).length === 0) {
+    console.log("No matches");
+  } else {
+    await buildEmail(results);
+  }
 })();
