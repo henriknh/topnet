@@ -1,6 +1,6 @@
 {
   "name": "topnet",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hemnet but only with top floor apartments",
   "main": "main.ts",
   "scripts": {
